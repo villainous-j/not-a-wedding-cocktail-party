@@ -16,6 +16,11 @@ ul {
   padding-inline-start: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* styles */
 
 body {
@@ -66,6 +71,18 @@ section {
   display: grid;
   grid-auto-rows: minmax(150px, 1fr);
   row-gap: 10px;
+}
+
+footer {
+  a {
+    display: block;
+    margin-top: 10px;
+    padding: 18px 20px 18px;
+    text-align: right;
+    background-color: #111;
+    color: #fff;
+    text-transform: uppercase;
+  }
 }
 
 article {
