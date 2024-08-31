@@ -10,7 +10,7 @@ const main = document.querySelector(selectors.main);
 const headerEls = document.querySelectorAll(selectors.header);
 const section = document.querySelector(selectors.section);
 const frontArticleEls = document.querySelectorAll(selectors.frontArticle);
-console.log('frontArticleEls -- ', frontArticleEls);
+// console.log('frontArticleEls -- ', frontArticleEls);
 // const backArticleEls = document.querySelectorAll(selectors.backArticle);
 // let rainbowHues = [0, 40, 80, 120, 160, 200, 240, 280, 320];
 
@@ -18,7 +18,7 @@ section.style.setProperty("--hue", getRandomIntInclusive(0, 359));
 
 frontArticleEls.forEach((article) => {
   // const articleBefore = article.querySelector('::before')
-  console.log(window.getComputedStyle(article,':before').backgroundColor)
+  // console.log(window.getComputedStyle(article,':before').backgroundColor)
 })
 
 // backArticleEls.forEach((article) => {

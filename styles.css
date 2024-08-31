@@ -1,3 +1,47 @@
+/* fonts */
+
+@font-face {
+  font-family: "IBM Plex Sans Regular";
+  src: url("/fonts/IBMPlexSans-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans Text";
+  src: url("/fonts/IBMPlexSans-Text.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans Medium";
+  src: url("/fonts/IBMPlexSans-Medium.woff2") format("woff2");
+}
+
+h1 {
+  font-family: "IBM Plex Sans Medium", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: "IBM Plex Sans Medium", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+h3 {
+  font-family: "IBM Plex Sans Medium", sans-serif;
+  line-height: 1;
+  margin-bottom: 8px;
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.03rem;
+}
+
+body {
+  font-family: "IBM Plex Sans Text", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
 /* resets */
 
 body,
@@ -23,12 +67,9 @@ a {
 
 /* styles */
 
-body {
-  font-family: sans-serif;
-}
-
 main {
   perspective: 1000px;
+  padding-bottom: env(safe-area-inset-bottom);
 
   @media (min-width: 720px) {
     max-width: 480px;
@@ -73,16 +114,14 @@ section {
   row-gap: 10px;
 }
 
-footer {
-  a {
-    display: block;
-    margin-top: 10px;
-    padding: 18px 20px 18px;
-    text-align: right;
-    background-color: #111;
-    color: #fff;
-    text-transform: uppercase;
-  }
+footer a {
+  display: block;
+  margin-top: 10px;
+  padding: 18px 20px 18px;
+  text-align: right;
+  background-color: #111;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 article {
@@ -102,16 +141,6 @@ article:before {
 
 article:nth-of-type(n + 6) {
   color: white;
-}
-
-h3 {
-  line-height: 1;
-  margin-bottom: 8px;
-  text-align: right;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.05em;
 }
 
 .back h3 {
@@ -222,29 +251,22 @@ li {
 
 li:nth-of-type(1) {
   opacity: 1;
-  font-weight: 400;
 }
 li:nth-of-type(2) {
   opacity: 0.8;
-  font-weight: 320;
 }
 li:nth-of-type(3) {
   opacity: 0.7;
-  font-weight: 340;
 }
 li:nth-of-type(4) {
   opacity: 0.6;
-  font-weight: 360;
 }
 li:nth-of-type(5) {
   opacity: 0.5;
-  font-weight: 380;
 }
 li:nth-of-type(6) {
   opacity: 0.4;
-  font-weight: 400;
 }
 li:nth-of-type(7) {
   opacity: 0.3;
-  font-weight: 420;
 }
