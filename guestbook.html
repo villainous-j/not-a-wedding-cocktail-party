@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="guestbook.css">
+  <script src="guestbook.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Guest Book</h1>
+      <p>
+        Thank you for coming!
+        Add an entry to our Guest Book if you'd like,
+        or peruse the soppy messages others have written!
+      </p>
+      <a href="/">Back to menu</a>
+    </header>
+    <section>
+      <form data-form-state="new">
+        <input type="hidden" name="id" value="">
+        <article style="--color-background: #b3f473;">
+          <div class="content">
+            <textarea class="content__textarea" name="text" maxlength="1000" placeholder="Tell us why you love us."
+              required></textarea>
+            <div class="icon icon--plus">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+                <path fill="#555" d="M10 1H6v5H1v4h5v5h4v-5h5V6h-5V1Z" />
+              </svg>
+            </div>
+          </div>
+          <div class="meta">
+            <p class="author-input">
+              <input class="author__text-input" type="text" name="author" placeholder="your name" required />
+            </p>
+            <div class="meta__footer">
+              <p class="colour-input-wrapper">
+                <input class="color-input" type="color" name="colour" value="#b3f473" id="color-picker" />
+                <label class="color-label" for="color-picker">#b3f473</label>
+              </p>
+              <button class="submit" type="submit">post</button>
+            </div>
+          </div>
+        </article>
+      </form>
+      <template id="article-template">
+        <article style="--color-background: #b3f473;" js-article data-id="">
+          <p class="content" js-content></p>
+          <div class="meta">
+            <p class="author">
+              <span class="author__text" js-author></span>
+              <span class="author__restricted-icon">®</span>
+            </p>
+            <div class="meta__footer">
+              <p class="colour" js-colour></p>
+              <button class="button--edit" type="button" js-button-edit>Edit</button>
+            </div>
+          </div>
+        </article>
+      </template>
+    </section>
+  </main>
+</body>
+
+</html>
