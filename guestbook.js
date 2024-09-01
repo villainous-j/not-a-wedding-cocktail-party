@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const editLink = templateInstance.querySelector(selectors.editLink);
 
         // modify template
+        article.style.setProperty(
+          "--color-text",
+          _calculateTextColour(data.colour)
+        );
         article.style.setProperty("--color-background", `${data.colour}`);
         article.dataset.id = data.id;
         content.innerHTML = data.text;
@@ -75,9 +79,35 @@ form.querySelector("#color-picker").addEventListener("input", (e) => {
   _updateFormColour(e.target.value);
 });
 
-function _updateFormColour(colourCode) {
-  formArticle.style.setProperty("--color-background", colourCode);
-  formColorLabel.innerText = colourCode;
+function _updateFormColour(colourHex) {
+  formArticle.style.setProperty(
+    "--color-text",
+    _calculateTextColour(colourHex)
+  );
+  formArticle.style.setProperty("--color-background", colourHex);
+  formColorLabel.innerText = colourHex;
+}
+
+function _hexToRgb(hex) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
+    : null;
+}
+
+function _calculateLuminance(rgb) {
+  const result = 0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b;
+  return result;
+}
+
+function _calculateTextColour(colourHex) {
+  const colourRGB = _hexToRgb(colourHex);
+  const luminance = _calculateLuminance(colourRGB);
+  return luminance < 120 ? "#ffffff" : "#000000";
 }
 
 function _initEditButtons() {
@@ -91,6 +121,7 @@ function _initEditButtons() {
       const colour = parentArticle.querySelector(selectors.colour);
 
       form.setAttribute("data-form-state", "edit");
+      form.text.focus();
       form.text.value = content.innerText;
       form.author.value = author.innerText;
       form.id.value = parentArticle.dataset.id;

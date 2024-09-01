@@ -1,3 +1,41 @@
+/* fonts */
+
+@font-face {
+  font-family: "Helvetica Neue Roman";
+  src: url("/fonts/HelveticaNeueLTStd-Roman.otf") format("opentype");
+}
+@font-face {
+  font-family: "Helvetica Neue Medium";
+  src: url("/fonts/HelveticaNeueLTStd-Md.otf") format("opentype");
+}
+@font-face {
+  font-family: "Helvetica Neue Bold";
+  src: url("/fonts/HelveticaNeueLTStd-Bd.otf") format("opentype");
+}
+
+h1 {
+  font-family: "Helvetica Neue Medium", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: "Helvetica Neue Medium", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+body, textarea, input {
+  font-family: 'Helvetica Neue Roman', Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.meta, .author__text-input {
+  font-family: 'Helvetica Neue Bold', Helvetica, sans-serif;
+  font-size: 32px;
+}
+
 /* resets */
 
 body,
@@ -12,6 +50,10 @@ p {
   margin: 0;
 }
 
+h1, h2 {
+  line-height: 1;
+}
+
 ul {
   list-style: none;
   padding-inline-start: 0;
@@ -19,6 +61,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: grey;
 }
 
 button {
@@ -33,10 +76,6 @@ button {
 
 /* styles */
 
-body {
-  font-family: sans-serif;
-}
-
 main {
   @media (min-width: 720px) {
     max-width: 480px;
@@ -44,7 +83,14 @@ main {
 }
 
 header {
-  padding: 8px 20px 18px;
+  padding: 18px 20px 18px;
+}
+
+.header-upper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 4px;
 }
 
 section {
@@ -95,6 +141,7 @@ article:has([js-button-edit]) {
 .content {
   position: relative;
   background-color: var(--color-background, #b3f473);
+  color: var(--color-text, #000000);
   padding: 24px var(--gutters);
   min-height: 300px;
   font-size: 20px;
@@ -105,8 +152,6 @@ article:has([js-button-edit]) {
   flex-direction: column;
   padding: 16px var(--gutters) 28px;
   text-transform: uppercase;
-  font-size: 28px;
-  font-weight: bold;
 }
 
 .meta__footer {
@@ -179,17 +224,23 @@ form[data-form-state="edit"] {
 }
 
 .content__textarea {
+  display: inline-block;
   width: 100%;
   height: 100%;
   background-color: transparent;
+  color: var(--color-text, #000000);
   border: none;
   outline: none;
+  box-shadow: none;
+  margin-block: 0px;
+  padding: 0px;
   font-size: 20px;
   resize: none;
 }
 
 .author-input {
-  display: inline-flex;
+  display: flex;
+  justify-content: flex-start;
   column-gap: 2px;
   width: 100%;
 }
@@ -198,9 +249,9 @@ form[data-form-state="edit"] {
   width: 100%;
   border: none;
   outline: none;
+  margin-block: 0px;
+  padding: 0px;
   text-transform: uppercase;
-  font-size: 28px;
-  font-weight: bold;
 }
 
 .colour-input-wrapper {
